@@ -24,7 +24,87 @@ pre code {
   overflow-x: auto;
 }
 
-/* Simple markdown styles */
+/* Comprehensive markdown styles */
 .markdown {
   max-width: var(--content-width);
+}
+
+.markdown h1 {
+  @apply text-3xl font-bold mt-8 mb-4 text-gray-900;
+}
+
+.markdown h2 {
+  @apply text-2xl font-bold mt-6 mb-3 text-gray-900 border-b border-gray-200 pb-2;
+}
+
+.markdown h3 {
+  @apply text-xl font-semibold mt-5 mb-2 text-gray-900;
+}
+
+.markdown h4 {
+  @apply text-lg font-semibold mt-4 mb-2 text-gray-800;
+}
+
+.markdown p {
+  @apply mb-4 text-gray-700 leading-relaxed;
+}
+
+.markdown ul {
+  @apply mb-4 ml-6 list-disc text-gray-700;
+}
+
+.markdown ol {
+  @apply mb-4 ml-6 list-decimal text-gray-700;
+}
+
+.markdown li {
+  @apply mb-2;
+}
+
+.markdown a {
+  @apply text-blue-600 hover:text-blue-800 underline;
+}
+
+.markdown code {
+  @apply bg-gray-100 text-red-600 px-1.5 py-0.5 rounded text-sm font-mono;
+}
+
+.markdown pre {
+  @apply mb-4 rounded-lg overflow-hidden;
+}
+
+.markdown pre code {
+  @apply bg-[#0b1220] text-[#e6eef6] block p-4 overflow-x-auto text-sm;
+}
+
+.markdown blockquote {
+  @apply border-l-4 border-gray-300 pl-4 italic text-gray-600 my-4;
+}
+
+.markdown table {
+  @apply w-full mb-4 border-collapse;
+}
+
+.markdown thead {
+  @apply bg-gray-50;
+}
+
+.markdown th {
+  @apply border border-gray-300 px-4 py-2 text-left font-semibold text-gray-900;
+}
+
+.markdown td {
+  @apply border border-gray-300 px-4 py-2 text-gray-700;
+}
+
+.markdown hr {
+  @apply my-6 border-gray-300;
+}
+
+.markdown strong {
+  @apply font-bold text-gray-900;
+}
+
+.markdown em {
+  @apply italic;
 }

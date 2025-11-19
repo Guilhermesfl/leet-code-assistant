@@ -10,7 +10,7 @@ export default function DocPage({ doc }:{doc:any}){
     <Layout>
       <div className="p-6">
         {/* Header section - Area name and Topic stacked vertically */}
-        <div className="mb-8">
+        <div className="mb-2">
           <p className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
             {doc.category}
           </p>

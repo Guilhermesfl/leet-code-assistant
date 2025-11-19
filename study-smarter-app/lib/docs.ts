@@ -67,6 +67,10 @@ export function getDocBySlug(slug: string) {
   const doc = docs.find(d => d.slug === slug)
   if (!doc) return null
   const raw = fs.readFileSync(doc.filePath, 'utf-8')
+  
+  // Remove the first h1 heading (title) from content since we display it separately
+  const contentWithoutTitle = raw.replace(/^#\s+.*\n\n?/, '')
+  
   // extract headings (## and ###) for TOC
   const headingRegex = /^#{2,6}\s+(.*)/gm
   const headings: any[] = []
@@ -80,7 +84,7 @@ export function getDocBySlug(slug: string) {
 
   return {
     ...doc,
-    content: raw,
+    content: contentWithoutTitle,
     headings,
   }
 }
