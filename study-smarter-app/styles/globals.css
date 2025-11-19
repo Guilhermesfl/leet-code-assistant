@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --content-width: 60rem;
+}
+
+html, body, #__next {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-gray-900;
+}
+
+/* Minimalistic code block style */
+pre code {
+  display: block;
+  padding: 1rem;
+  border-radius: 8px;
+  background: #0b1220;
+  color: #e6eef6;
+  overflow-x: auto;
+}
+
+/* Simple markdown styles */
+.markdown {
+  max-width: var(--content-width);
+}
