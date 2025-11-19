@@ -1,4 +1,4 @@
-# Study Smarter - Documentation Reader
+# Coding Hero - Documentation Reader
 
 Minimalistic documentation reader designed for reading project notes from `python_docs` and `data_structures`.
 
@@ -7,7 +7,7 @@ Minimalistic documentation reader designed for reading project notes from `pytho
 1. Install dependencies
 
 ```bash
-cd study-smarter-app
+cd coding-hero-app
 npm install
 ```
 
@@ -34,4 +34,4 @@ npm run dev
 - This app treats the first H1 as the title and the first paragraph as description.
 
 - Files are automatically sluggified for clean URLs.
-- You can run `npm run dev` inside `study-smarter-app` to start locally. The app reads the markdown directly from your repository root.
+- You can run `npm run dev` inside `coding-hero-app` to start locally. The app reads the markdown directly from your repository root.

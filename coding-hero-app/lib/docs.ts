@@ -20,17 +20,38 @@ function titleFromContent(content: string) {
 }
 
 function getRepoRoot() {
-  // Next.js runs in study-smarter-app, so repo root is parent
+  // Next.js runs in coding-hero-app, so repo root is parent
   return path.resolve(process.cwd(), '..')
+}
+
+function formatCategoryName(folderName: string): string {
+  // Convert folder name to readable category name
+  // e.g., "data_structures" -> "Data Structures", "python_docs" -> "Python Docs"
+  return folderName
+    .split('_')
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join(' ')
 }
 
 export function getDocsFolderPaths() {
   const root = getRepoRoot()
-  return {
-    python: path.join(root, 'python_docs'),
-    data_structures: path.join(root, 'data_structures'),
-    system_design: path.join(root, 'system_design')
+  const contentPath = path.join(root, 'content')
+  
+  // Dynamically discover all folders in content/
+  if (!fs.existsSync(contentPath)) {
+    return {}
   }
+  
+  const folders: { [key: string]: string } = {}
+  const entries = fs.readdirSync(contentPath, { withFileTypes: true })
+  
+  entries.forEach(entry => {
+    if (entry.isDirectory()) {
+      folders[entry.name] = path.join(contentPath, entry.name)
+    }
+  })
+  
+  return folders
 }
 
 export function getAllDocs() {
@@ -49,7 +70,7 @@ export function getAllDocs() {
       docs.push({
         title,
         slug: slugify(file),
-        category: cat === 'python' ? 'Python Docs' : (cat === 'data_structures' ? 'Data Structures' : 'System Design'),
+        category: formatCategoryName(cat),
         filePath: full,
       })
     })

@@ -23,7 +23,9 @@ const Sidebar: React.FC<{mobileOpen?: boolean}> = ({mobileOpen=false}) => {
 
   return (
     <aside className={`bg-gray-50 border-r p-4 w-64 ${mobileOpen ? 'block' : 'hidden'} md:block overflow-y-auto`}>
-      <h3 className="text-sm font-semibold mb-3">Documentation</h3>
+      <Link href="/" className="block mb-4">
+        <h3 className="text-lg font-bold text-gray-900 hover:text-blue-600 transition-colors">Coding Hero</h3>
+      </Link>
       <div className="mb-4 hidden md:block">
         <div className="mb-2">
           {/* Search component for wide screens */}

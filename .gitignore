@@ -20,7 +20,7 @@ ENV/
 .DS_Store
 Thumbs.db
 
-# Node (for study-smarter-app)
+# Node (for coding-hero-app)
 **/node_modules/
 **/.next/
 **/out/
