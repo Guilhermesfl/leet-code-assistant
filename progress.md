@@ -9,8 +9,8 @@ Track your completed problems here! Mark with ✅ when done.
 - [x] 1. Two Sum
 - [x] 2. Valid Anagram
 - [x] 3. Contains Duplicate
-- [ ] 4. Best Time to Buy and Sell Stock
-- [ ] 5. Valid Parentheses
+- [x] 4. Best Time to Buy and Sell Stock
+- [x] 5. Valid Parentheses
 - [ ] 6. Merge Two Sorted Lists
 - [ ] 7. Invert Binary Tree
 - [ ] 8. Maximum Depth of Binary Tree
