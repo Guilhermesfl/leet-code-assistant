@@ -35,3 +35,8 @@ npm run dev
 
 - Files are automatically sluggified for clean URLs.
 - You can run `npm run dev` inside `coding-hero-app` to start locally. The app reads the markdown directly from your repository root.
+
+## Utilities
+
+- Interview Preparation: Visit `/interview-prep` from the sidebar to use a holistic checklist with per-category progress and local persistence.
+- Progress Tracker: Visit `/progress` to track completion across the curated 150 LeetCode problems.
