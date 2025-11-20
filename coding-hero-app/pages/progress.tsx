@@ -170,8 +170,10 @@ const problems: Problem[] = [
   { id: 150, title: "Word Ladder", difficulty: "Hard", section: "Expert Level" },
 ]
 
+
 export default function ProgressTracker() {
   const [completed, setCompleted] = useState<Set<number>>(new Set([1, 2, 3, 4, 5]))
+  const [completionDates, setCompletionDates] = useState<Record<number, string>>({})
   const [filter, setFilter] = useState<'all' | 'Easy' | 'Medium' | 'Hard'>('all')
 
   // Load from localStorage on mount
@@ -180,6 +182,10 @@ export default function ProgressTracker() {
     if (saved) {
       setCompleted(new Set(JSON.parse(saved)))
     }
+    const savedDates = localStorage.getItem('leetcode-progress-dates')
+    if (savedDates) {
+      setCompletionDates(JSON.parse(savedDates))
+    }
   }, [])
 
   // Save to localStorage whenever completed changes
@@ -187,14 +193,23 @@ export default function ProgressTracker() {
     localStorage.setItem('leetcode-progress', JSON.stringify(Array.from(completed)))
   }, [completed])
 
+  // Save completion dates
+  useEffect(() => {
+    localStorage.setItem('leetcode-progress-dates', JSON.stringify(completionDates))
+  }, [completionDates])
+
   const toggleProblem = (id: number) => {
     const newCompleted = new Set(completed)
+    const newDates = { ...completionDates }
     if (newCompleted.has(id)) {
       newCompleted.delete(id)
+      delete newDates[id]
     } else {
       newCompleted.add(id)
+      newDates[id] = new Date().toLocaleDateString()
     }
     setCompleted(newCompleted)
+    setCompletionDates(newDates)
   }
 
   const filteredProblems = filter === 'all' ? problems : problems.filter(p => p.difficulty === filter)
@@ -338,11 +353,14 @@ export default function ProgressTracker() {
                       <div className="flex-1">
                         <div className="flex items-center gap-2 mb-1">
                           <span className="text-sm font-bold text-gray-500">#{problem.id}</span>
-                          <span className={`text-xs px-2 py-0.5 rounded border font-medium ${getDifficultyColor(problem.difficulty)}`}>
+                          <span className={`text-xs px-2 py-0.5 rounded border font-medium ${getDifficultyColor(problem.difficulty)}`}> 
                             {problem.difficulty}
                           </span>
                         </div>
                         <div className="font-medium text-gray-900">{problem.title}</div>
+                        {completed.has(problem.id) && completionDates[problem.id] && (
+                          <div className="text-xs text-blue-700 mt-1">Completed: {completionDates[problem.id]}</div>
+                        )}
                       </div>
                       <div className="ml-2">
                         {completed.has(problem.id) ? (

@@ -1,22 +1,25 @@
 import { useEffect, useState } from 'react'
+import Link from 'next/link'
+import { Tooltip } from 'react-tooltip'
 
 interface PrepItem {
   id: string
   label: string
   category: string
   description?: string
+  slug?: string
 }
 
 const prepItems: PrepItem[] = [
   // Core Data Structures
-  { id: 'ds-arrays', label: 'Arrays & Strings', category: 'Core Data Structures', description: 'Know common manipulations, slicing, frequency counting.' },
-  { id: 'ds-linkedlists', label: 'Linked Lists', category: 'Core Data Structures', description: 'Reverse, detect cycle, merge, pointer patterns.' },
-  { id: 'ds-stacks-queues', label: 'Stacks & Queues', category: 'Core Data Structures', description: 'Use cases, monotonic stack, BFS queue usage.' },
-  { id: 'ds-trees', label: 'Trees & BST', category: 'Core Data Structures', description: 'Traversals (DFS/BFS), properties, reconstruction.' },
-  { id: 'ds-graphs', label: 'Graphs', category: 'Core Data Structures', description: 'Representations, BFS/DFS, topological sort.' },
-  { id: 'ds-heaps', label: 'Heaps / Priority Queues', category: 'Core Data Structures', description: 'K problems, streaming, custom comparators.' },
-  { id: 'ds-tries', label: 'Tries', category: 'Core Data Structures', description: 'Prefix operations, word search, autocomplete.' },
-  { id: 'ds-hash', label: 'Hash Maps / Sets', category: 'Core Data Structures', description: 'Counting, caching, two-sum style patterns.' },
+  { id: 'ds-arrays', label: 'Arrays & Strings', category: 'Core Data Structures', description: 'Know common manipulations, slicing, frequency counting.', slug: 'arrays-and-strings' },
+  { id: 'ds-linkedlists', label: 'Linked Lists', category: 'Core Data Structures', description: 'Reverse, detect cycle, merge, pointer patterns.', slug: 'linked-lists' },
+  { id: 'ds-stacks-queues', label: 'Stacks & Queues', category: 'Core Data Structures', description: 'Use cases, monotonic stack, BFS queue usage.', slug: 'stacks-and-queues' },
+  { id: 'ds-trees', label: 'Trees & BST', category: 'Core Data Structures', description: 'Traversals (DFS/BFS), properties, reconstruction.', slug: 'binary-trees-and-bst' },
+  { id: 'ds-graphs', label: 'Graphs', category: 'Core Data Structures', description: 'Representations, BFS/DFS, topological sort.', slug: 'graphs' },
+  { id: 'ds-heaps', label: 'Heaps / Priority Queues', category: 'Core Data Structures', description: 'K problems, streaming, custom comparators.', slug: 'heaps-and-priority-queues' },
+  { id: 'ds-tries', label: 'Tries', category: 'Core Data Structures', description: 'Prefix operations, word search, autocomplete.', slug: 'tries' },
+  { id: 'ds-hash', label: 'Hash Maps / Sets', category: 'Core Data Structures', description: 'Counting, caching, two-sum style patterns.', slug: 'hash-maps-and-sets' },
 
   // Algorithmic Patterns
   { id: 'alg-two-pointers', label: 'Two Pointers', category: 'Algorithm Patterns', description: 'Converging, sliding, partitioning variations.' },
@@ -162,18 +165,38 @@ export default function InterviewPrep() {
                   <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3">
                     {items.map(item => (
                       <li key={item.id}>
-                        <label className={`flex items-start gap-3 p-3 rounded-lg border text-sm cursor-pointer transition-colors ${checked.has(item.id) ? 'bg-blue-50 border-blue-400' : 'bg-white border-gray-200 hover:border-gray-300'}`}> 
+                        <div className={`flex items-start gap-3 p-3 rounded-lg border text-sm transition-all ${checked.has(item.id) ? 'bg-blue-50 border-blue-400' : 'bg-white border-gray-200'} ${item.slug ? 'hover:border-blue-400 hover:shadow-md' : ''}`}>
                           <input
                             type="checkbox"
                             checked={checked.has(item.id)}
                             onChange={() => toggleItem(item.id)}
-                            className="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                            className="mt-1 h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 cursor-pointer"
                           />
-                          <span className="flex-1">
-                            <span className="font-medium text-gray-900 block mb-0.5">{item.label}</span>
-                            {item.description && <span className="text-xs text-gray-600 leading-snug block">{item.description}</span>}
-                          </span>
-                        </label>
+                          {item.slug ? (
+                            <Link
+                              href={`/docs/${item.slug}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex-1 cursor-pointer group"
+                              aria-label={`View ${item.label} documentation`}
+                            >
+                              <span className="flex items-center gap-1.5 font-medium text-gray-900 mb-0.5 group-hover:text-blue-600 transition-colors">
+                                <span className="text-base">📖</span>
+                                <span>{item.label}</span>
+                              </span>
+                              {item.description && <span className="text-xs text-gray-600 leading-snug block">{item.description}</span>}
+                            </Link>
+                          ) : (
+                            <div
+                              className="flex-1 cursor-not-allowed opacity-60"
+                              data-tooltip-id="content-soon"
+                              data-tooltip-content="Content coming soon"
+                            >
+                              <span className="font-medium text-gray-900 block mb-0.5">{item.label}</span>
+                              {item.description && <span className="text-xs text-gray-600 leading-snug block">{item.description}</span>}
+                            </div>
+                          )}
+                        </div>
                       </li>
                     ))}
                   </ul>
@@ -188,6 +211,8 @@ export default function InterviewPrep() {
         <h3 className="font-semibold text-indigo-900 mb-2">How to Use</h3>
         <p className="text-sm text-indigo-700 leading-relaxed">Treat this as a holistic readiness checklist. Aim for &gt;80% before scheduling on-sites. Each item should be backed by at least one concrete example or recent practice session. Revisit categories where confidence drops after mocks.</p>
       </div>
+      {/* Shared tooltip for non-linked cards */}
+      <Tooltip id="content-soon" place="top" />
     </section>
   )
 }

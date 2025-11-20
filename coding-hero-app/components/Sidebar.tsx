@@ -55,10 +55,10 @@ const Sidebar: React.FC<{mobileOpen?: boolean}> = ({mobileOpen=false}) => {
       
       {Object.keys(byCategory).map(category => (
         <div key={category} className="mb-4">
-          <div className="text-xs uppercase text-gray-400 mb-2">{category}</div>
+          <div className="text-sm font-semibold text-gray-900 mb-2">{category}</div>
           {byCategory[category].map((item: any) => (
             <div key={item.slug} className="mb-1">
-              <Link href={`/docs/${item.slug}`} className="text-gray-700 hover:underline">{item.title}</Link>
+              <Link href={`/docs/${item.slug}`} className="text-sm text-gray-600 hover:text-blue-600 hover:underline block py-0.5">{item.title}</Link>
             </div>
           ))}
         </div>
