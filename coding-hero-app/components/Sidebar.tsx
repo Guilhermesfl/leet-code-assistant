@@ -3,9 +3,12 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 const Search = dynamic(() => import('./Search'), { ssr: false })
 
+const STORAGE_KEY = 'sidebar-expanded-categories'
+
 const Sidebar: React.FC<{mobileOpen?: boolean}> = ({mobileOpen=false}) => {
   const [open, setOpen] = useState(false)
   const [docs, setDocs] = useState<any[]>([])
+  const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set())
 
   useEffect(() => {
     async function load() {
@@ -14,12 +17,44 @@ const Sidebar: React.FC<{mobileOpen?: boolean}> = ({mobileOpen=false}) => {
       setDocs(json)
     }
     load()
+
+    // Load expanded state from localStorage
+    const saved = localStorage.getItem(STORAGE_KEY)
+    if (saved) {
+      setExpandedCategories(new Set(JSON.parse(saved)))
+    }
   }, [])
+
+  useEffect(() => {
+    // Save expanded state to localStorage
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(expandedCategories)))
+  }, [expandedCategories])
 
   const byCategory = docs.reduce((acc, doc) => {
     (acc[doc.category] = acc[doc.category] || []).push(doc)
     return acc
   }, {} as {[key: string]: any[]})
+
+  const toggleCategory = (category: string) => {
+    const next = new Set(expandedCategories)
+    next.has(category) ? next.delete(category) : next.add(category)
+    setExpandedCategories(next)
+  }
+
+  const getCategorySlug = (category: string) => {
+    return category.toLowerCase().replace(/\s+/g, '-')
+  }
+
+  const getCategoryIcon = (category: string) => {
+    const iconMap: Record<string, string> = {
+      'Data Structures': '🏗️',
+      'Python Docs': '🐍',
+      'Algorithm Patterns': '🧩',
+      'System Design': '🏛️',
+      'Interview Guidelines': '📋'
+    }
+    return iconMap[category] || '📚'
+  }
 
   return (
     <aside className={`bg-gray-50 border-r p-4 w-64 ${mobileOpen ? 'block' : 'hidden'} md:block overflow-y-auto`}>
@@ -57,16 +92,49 @@ const Sidebar: React.FC<{mobileOpen?: boolean}> = ({mobileOpen=false}) => {
         </Link>
       </div>
       
-      {Object.keys(byCategory).map(category => (
-        <div key={category} className="mb-4">
-          <div className="text-sm font-semibold text-gray-900 mb-2">{category}</div>
-          {byCategory[category].map((item: any) => (
-            <div key={item.slug} className="mb-1">
-              <Link href={`/docs/${item.slug}`} className="text-sm text-gray-600 hover:text-blue-600 hover:underline block py-0.5">{item.title}</Link>
+      {/* Collapsible Categories */}
+      {Object.keys(byCategory).sort().map(category => {
+        const isExpanded = expandedCategories.has(category)
+        const categorySlug = getCategorySlug(category)
+        const categoryIcon = getCategoryIcon(category)
+        
+        return (
+          <div key={category} className="mb-3">
+            <div className="flex items-center justify-between group">
+              <Link 
+                href={`/category/${categorySlug}`}
+                className="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors flex-1 py-1 flex items-center gap-2"
+              >
+                <span className="text-base">{categoryIcon}</span>
+                <span>{category}</span>
+              </Link>
+              <button
+                onClick={() => toggleCategory(category)}
+                className="p-1 hover:bg-gray-200 rounded transition-colors"
+                aria-label={isExpanded ? 'Collapse' : 'Expand'}
+              >
+                <svg
+                  className={`w-4 h-4 text-gray-600 transition-transform ${isExpanded ? 'rotate-180' : ''}`}
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
             </div>
-          ))}
-        </div>
-      ))}
+            {isExpanded && (
+              <div className="mt-1 ml-2 border-l-2 border-gray-200 pl-3 space-y-1">
+                {byCategory[category].map((item: any) => (
+                  <div key={item.slug}>
+                    <Link href={`/docs/${item.slug}`} className="text-sm text-gray-600 hover:text-blue-600 hover:underline block py-0.5">{item.title}</Link>
+                  </div>
+                ))}
+              </div>
+            )}
+          </div>
+        )
+      })}
     </aside>
   )
 }
