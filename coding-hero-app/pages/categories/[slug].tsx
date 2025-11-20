@@ -123,7 +123,7 @@ export default function CategoryPage() {
             {categoryDocs.map((doc) => (
               <Link
                 key={doc.slug}
-                href={`/category/${slug}/${doc.slug}`}
+                href={`/categories/${slug}/${doc.slug}`}
                 className="block p-4 bg-white border border-gray-200 rounded-lg hover:border-blue-500 hover:shadow-md transition-all group"
               >
                 <h3 className="font-semibold text-gray-900 group-hover:text-blue-600 mb-2">

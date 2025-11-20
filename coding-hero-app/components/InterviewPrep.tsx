@@ -12,14 +12,14 @@ interface PrepItem {
 
 const prepItems: PrepItem[] = [
   // Core Data Structures
-  { id: 'ds-arrays', label: 'Arrays & Strings', category: 'Core Data Structures', description: 'Know common manipulations, slicing, frequency counting.', slug: 'arrays-and-strings' },
-  { id: 'ds-linkedlists', label: 'Linked Lists', category: 'Core Data Structures', description: 'Reverse, detect cycle, merge, pointer patterns.', slug: 'linked-lists' },
-  { id: 'ds-stacks-queues', label: 'Stacks & Queues', category: 'Core Data Structures', description: 'Use cases, monotonic stack, BFS queue usage.', slug: 'stacks-and-queues' },
-  { id: 'ds-trees', label: 'Trees & BST', category: 'Core Data Structures', description: 'Traversals (DFS/BFS), properties, reconstruction.', slug: 'binary-trees-and-bst' },
-  { id: 'ds-graphs', label: 'Graphs', category: 'Core Data Structures', description: 'Representations, BFS/DFS, topological sort.', slug: 'graphs' },
-  { id: 'ds-heaps', label: 'Heaps / Priority Queues', category: 'Core Data Structures', description: 'K problems, streaming, custom comparators.', slug: 'heaps-and-priority-queues' },
-  { id: 'ds-tries', label: 'Tries', category: 'Core Data Structures', description: 'Prefix operations, word search, autocomplete.', slug: 'tries' },
-  { id: 'ds-hash', label: 'Hash Maps / Sets', category: 'Core Data Structures', description: 'Counting, caching, two-sum style patterns.', slug: 'hash-maps-and-sets' },
+  { id: 'ds-arrays', label: 'Arrays & Strings', category: 'Core Data Structures', description: 'Know common manipulations, slicing, frequency counting.', slug: 'data-structures/arrays-and-strings' },
+  { id: 'ds-linkedlists', label: 'Linked Lists', category: 'Core Data Structures', description: 'Reverse, detect cycle, merge, pointer patterns.', slug: 'data-structures/linked-lists' },
+  { id: 'ds-stacks-queues', label: 'Stacks & Queues', category: 'Core Data Structures', description: 'Use cases, monotonic stack, BFS queue usage.', slug: 'data-structures/stacks-and-queues' },
+  { id: 'ds-trees', label: 'Trees & BST', category: 'Core Data Structures', description: 'Traversals (DFS/BFS), properties, reconstruction.', slug: 'data-structures/binary-trees-and-bst' },
+  { id: 'ds-graphs', label: 'Graphs', category: 'Core Data Structures', description: 'Representations, BFS/DFS, topological sort.', slug: 'data-structures/graphs' },
+  { id: 'ds-heaps', label: 'Heaps / Priority Queues', category: 'Core Data Structures', description: 'K problems, streaming, custom comparators.', slug: 'data-structures/heaps-and-priority-queues' },
+  { id: 'ds-tries', label: 'Tries', category: 'Core Data Structures', description: 'Prefix operations, word search, autocomplete.', slug: 'data-structures/tries' },
+  { id: 'ds-hash', label: 'Hash Maps / Sets', category: 'Core Data Structures', description: 'Counting, caching, two-sum style patterns.', slug: 'data-structures/hash-maps-and-sets' },
 
   // Algorithmic Patterns
   { id: 'alg-two-pointers', label: 'Two Pointers', category: 'Algorithm Patterns', description: 'Converging, sliding, partitioning variations.' },
@@ -174,7 +174,7 @@ export default function InterviewPrep() {
                           />
                           {item.slug ? (
                             <Link
-                              href={`/docs/${item.slug}`}
+                              href={`/categories/${item.slug}`}
                               target="_blank"
                               rel="noopener noreferrer"
                               className="flex-1 cursor-pointer group"

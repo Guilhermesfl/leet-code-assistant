@@ -102,7 +102,7 @@ const Sidebar: React.FC<{mobileOpen?: boolean}> = ({mobileOpen=false}) => {
           <div key={category} className="mb-3">
             <div className="flex items-center justify-between group">
               <Link 
-                href={`/category/${categorySlug}`}
+                href={`/categories/${categorySlug}`}
                 className="text-sm font-semibold text-gray-900 hover:text-blue-600 transition-colors flex-1 py-1 flex items-center gap-2"
               >
                 <span className="text-base">{categoryIcon}</span>
@@ -127,7 +127,7 @@ const Sidebar: React.FC<{mobileOpen?: boolean}> = ({mobileOpen=false}) => {
               <div className="mt-1 ml-2 border-l-2 border-gray-200 pl-3 space-y-1">
                 {byCategory[category].map((item: any) => (
                   <div key={item.slug}>
-                    <Link href={`/docs/${item.slug}`} className="text-sm text-gray-600 hover:text-blue-600 hover:underline block py-0.5">{item.title}</Link>
+                    <Link href={`/categories/${categorySlug}/${item.slug}`} className="text-sm text-gray-600 hover:text-blue-600 hover:underline block py-0.5">{item.title}</Link>
                   </div>
                 ))}
               </div>

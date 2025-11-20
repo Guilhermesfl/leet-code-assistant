@@ -23,8 +23,8 @@ const studyPlanData: WeekData[] = [
     week: 1,
     title: "Arrays, Strings & Hash Maps",
     days: [
-      { day: 1, focus: "Theory: Arrays & Strings", theory: ["Arrays and Strings", "List Operations"], theoryLinks: [{ label: "Arrays & Strings", slug: "arrays-and-strings" }] },
-      { day: 2, focus: "Theory: Hash Maps & Sets", theory: ["Hash Maps and Sets", "Collections Module"], theoryLinks: [{ label: "Hash Maps & Sets", slug: "hash-maps-and-sets" }] },
+      { day: 1, focus: "Theory: Arrays & Strings", theory: ["Arrays and Strings", "List Operations"], theoryLinks: [{ label: "Arrays & Strings", slug: "data-structures/arrays-and-strings" }] },
+      { day: 2, focus: "Theory: Hash Maps & Sets", theory: ["Hash Maps and Sets", "Collections Module"], theoryLinks: [{ label: "Hash Maps & Sets", slug: "data-structures/hash-maps-and-sets" }] },
       { day: 3, focus: "Two Pointers Pattern", problems: ["Two Sum", "Valid Palindrome", "Move Zeroes"], problemIds: [1, 37, 20] },
       { day: 4, focus: "Two Pointers (Advanced)", problems: ["Container With Most Water", "3Sum"], problemIds: [35, 22] },
       { day: 5, focus: "Sliding Window", problems: ["Longest Substring Without Repeating", "Best Time to Buy/Sell Stock"], problemIds: [31, 4] },
@@ -36,7 +36,7 @@ const studyPlanData: WeekData[] = [
     week: 2,
     title: "Linked Lists & Stacks/Queues",
     days: [
-      { day: 1, focus: "Theory: Linked Lists & Stacks", theory: ["Linked Lists", "Stacks and Queues"], theoryLinks: [{ label: "Linked Lists", slug: "linked-lists" }, { label: "Stacks & Queues", slug: "stacks-and-queues" }] },
+      { day: 1, focus: "Theory: Linked Lists & Stacks", theory: ["Linked Lists", "Stacks and Queues"], theoryLinks: [{ label: "Linked Lists", slug: "data-structures/linked-lists" }, { label: "Stacks & Queues", slug: "data-structures/stacks-and-queues" }] },
       { day: 2, focus: "Linked List Basics", problems: ["Reverse Linked List", "Merge Two Sorted Lists"], problemIds: [13, 6] },
       { day: 3, focus: "Linked List Patterns", problems: ["Linked List Cycle", "Intersection of Lists"], problemIds: [25, 46] },
       { day: 4, focus: "Advanced Linked Lists", problems: ["Remove Nth Node", "Reorder List"], problemIds: [60, 124] },
@@ -49,7 +49,7 @@ const studyPlanData: WeekData[] = [
     week: 3,
     title: "Binary Trees & BST",
     days: [
-      { day: 1, focus: "Theory: Trees & BST", theory: ["Binary Trees", "Tree Traversals"], theoryLinks: [{ label: "Binary Trees & BST", slug: "binary-trees-and-bst" }] },
+      { day: 1, focus: "Theory: Trees & BST", theory: ["Binary Trees", "Tree Traversals"], theoryLinks: [{ label: "Binary Trees & BST", slug: "data-structures/binary-trees-and-bst" }] },
       { day: 2, focus: "Tree Basics", problems: ["Invert Tree", "Maximum Depth", "Same Tree"], problemIds: [7, 8, 28] },
       { day: 3, focus: "Tree Traversals", problems: ["Symmetric Tree", "Level Order Traversal"], problemIds: [15, 70] },
       { day: 4, focus: "BST Operations", problems: ["Validate BST", "Kth Smallest in BST"], problemIds: [72, 73] },
@@ -62,7 +62,7 @@ const studyPlanData: WeekData[] = [
     week: 4,
     title: "Recursion & DP Intro",
     days: [
-      { day: 1, focus: "Theory: Recursion & DP", theory: ["Common Patterns", "Dynamic Programming"], theoryLinks: [{ label: "Dynamic Programming", slug: "dynamic-programming" }] },
+      { day: 1, focus: "Theory: Recursion & DP", theory: ["Common Patterns", "Dynamic Programming"], theoryLinks: [{ label: "Dynamic Programming", slug: "algorithm-patterns/dynamic-programming" }] },
       { day: 2, focus: "Classic Recursion", problems: ["Climbing Stairs", "Generate Parentheses"], problemIds: [14, 91] },
       { day: 3, focus: "More Recursion", problems: ["Letter Combinations", "Permutations"], problemIds: [91, 88] },
       { day: 4, focus: "1D DP Basics", problems: ["House Robber", "Coin Change"], problemIds: [96, 95] },
@@ -76,7 +76,7 @@ const studyPlanData: WeekData[] = [
     week: 5,
     title: "Graphs & BFS/DFS",
     days: [
-      { day: 1, focus: "Theory: Graphs", theory: ["Graph Representations", "BFS/DFS"], theoryLinks: [{ label: "Graphs", slug: "graphs" }, { label: "Graph Traversal", slug: "graph-traversal" }] },
+      { day: 1, focus: "Theory: Graphs", theory: ["Graph Representations", "BFS/DFS"], theoryLinks: [{ label: "Graphs", slug: "data-structures/graphs" }, { label: "Graph Traversal", slug: "algorithm-patterns/graph-traversal" }] },
       { day: 2, focus: "Graph Basics & BFS", problems: ["Number of Islands", "Clone Graph"], problemIds: [80, 81] },
       { day: 3, focus: "More BFS", problems: ["Rotting Oranges", "Course Schedule"], problemIds: [142, 83] },
       { day: 4, focus: "DFS & Backtracking", problems: ["Course Schedule II", "Word Search"], problemIds: [84, 87] },
@@ -89,7 +89,7 @@ const studyPlanData: WeekData[] = [
     week: 6,
     title: "Heaps & Advanced Trees",
     days: [
-      { day: 1, focus: "Theory: Heaps & Tries", theory: ["Heaps", "Tries"], theoryLinks: [{ label: "Heaps", slug: "heaps-and-priority-queues" }, { label: "Tries", slug: "tries" }] },
+      { day: 1, focus: "Theory: Heaps & Tries", theory: ["Heaps", "Tries"], theoryLinks: [{ label: "Heaps", slug: "data-structures/heaps-and-priority-queues" }, { label: "Tries", slug: "data-structures/tries" }] },
       { day: 2, focus: "Heap Basics", problems: ["Kth Largest", "Top K Frequent"], problemIds: [45, 44] },
       { day: 3, focus: "Advanced Heaps", problems: ["Merge K Sorted Lists", "Find Median"], problemIds: [125, 110] },
       { day: 4, focus: "Tries Basics", problems: ["Implement Trie", "Design Add/Search"], problemIds: [107, 108] },
@@ -115,7 +115,7 @@ const studyPlanData: WeekData[] = [
     week: 8,
     title: "Binary Search & Greedy",
     days: [
-      { day: 1, focus: "Theory: Binary Search & Greedy", theory: ["Binary Search Variants", "Greedy"], theoryLinks: [{ label: "Binary Search", slug: "binary-search" }, { label: "Greedy", slug: "greedy" }] },
+      { day: 1, focus: "Theory: Binary Search & Greedy", theory: ["Binary Search Variants", "Greedy"], theoryLinks: [{ label: "Binary Search", slug: "algorithm-patterns/binary-search" }, { label: "Greedy", slug: "algorithm-patterns/greedy" }] },
       { day: 2, focus: "Binary Search Basics", problems: ["Binary Search", "First Bad Version"], problemIds: [12, 38] },
       { day: 3, focus: "Advanced Binary Search", problems: ["Search Rotated Array", "Find Min Rotated"], problemIds: [39, 40] },
       { day: 4, focus: "Greedy Basics", problems: ["Jump Game", "Jump Game II"], problemIds: [62, 104] },
@@ -349,7 +349,7 @@ export default function StudyPlan() {
             <Link href="/problem-tracker" className="px-3 py-1 bg-white text-blue-700 rounded border border-blue-200 hover:bg-blue-50 text-sm">
               💻 Problem Tracker
             </Link>
-            <Link href="/docs/arrays-and-strings" className="px-3 py-1 bg-white text-gray-700 rounded border border-gray-200 hover:bg-gray-50 text-sm">
+            <Link href="/category/data-structures" className="px-3 py-1 bg-white text-gray-700 rounded border border-gray-200 hover:bg-gray-50 text-sm">
               📚 Documentation
             </Link>
           </div>
@@ -429,11 +429,11 @@ export default function StudyPlan() {
                           {/* Theory Links */}
                           {day.theoryLinks && day.theoryLinks.length > 0 && (
                             <div className="mb-2">
-                              <div className="text-xs text-gray-500 mb-1">📖 Theory:</div>
+                              <div className="text-xs text-gray-500 mb-1">📚 Theory:</div>
                               {day.theoryLinks.map((link, idx) => (
                                 <Link
                                   key={idx}
-                                  href={`/docs/${link.slug}`}
+                                  href={`/categories/${link.slug}`}
                                   className="block text-xs text-purple-600 hover:text-purple-800 hover:underline"
                                 >
                                   {link.label}

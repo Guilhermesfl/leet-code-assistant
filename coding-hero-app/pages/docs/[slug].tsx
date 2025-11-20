@@ -4,6 +4,7 @@ import DocRenderer from '../../components/DocRenderer'
 import TOC from '../../components/TOC'
 import { GetStaticPaths, GetStaticProps } from 'next'
 import { useEffect } from 'react'
+import Link from 'next/link'
 
 export default function DocPage({ doc }:{doc:any}){
   useEffect(() => {
@@ -17,13 +18,24 @@ export default function DocPage({ doc }:{doc:any}){
   }, [doc?.slug])
 
   if(!doc) return <Layout><div className="p-6">Doc not found</div></Layout>
+  
+  const categorySlug = doc.category.toLowerCase().replace(/\s+/g, '-')
+  
   return (
     <Layout>
-      {/* Header section - Fixed at top, Area name and Topic stacked vertically */}
-      <div className="sticky top-0 bg-white z-10 border-b p-6 pb-4">
-        <p className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
-          {doc.category}
-        </p>
+      {/* Breadcrumb Navigation */}
+      <div className="bg-white border-b p-6 pb-4">
+        <div className="mb-4">
+          <Link href="/" className="text-blue-600 hover:underline text-sm">
+            Home
+          </Link>
+          <span className="text-gray-400 mx-2">/</span>
+          <Link href={`/categories/${categorySlug}`} className="text-blue-600 hover:underline text-sm">
+            {doc.category}
+          </Link>
+          <span className="text-gray-400 mx-2">/</span>
+          <span className="text-gray-700 text-sm">{doc.title}</span>
+        </div>
         <h1 className="text-3xl font-bold text-gray-900">
           {doc.title}
         </h1>
