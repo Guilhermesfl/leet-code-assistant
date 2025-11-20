@@ -113,8 +113,8 @@ export default function InterviewPrep() {
     <section className="mt-16" aria-labelledby="interview-prep-heading">
       <div className="flex items-center justify-between mb-6">
         <div>
-          <h2 id="interview-prep-heading" className="text-2xl font-bold">Interview Preparation</h2>
-          <p className="text-gray-600 text-sm">Holistic readiness tracker beyond coding problems</p>
+          <h2 id="interview-prep-heading" className="text-2xl font-bold">Theory Tracker</h2>
+          <p className="text-gray-600 text-sm">Track your understanding of core concepts, patterns, and design principles</p>
         </div>
         <button onClick={resetAll} className="text-xs px-3 py-1 rounded bg-red-50 text-red-600 border border-red-200 hover:bg-red-100">Reset All</button>
       </div>

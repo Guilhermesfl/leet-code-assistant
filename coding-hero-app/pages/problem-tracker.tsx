@@ -244,8 +244,8 @@ export default function ProgressTracker() {
       <div className="max-w-6xl mx-auto p-6">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold mb-2">LeetCode Progress Tracker</h1>
-          <p className="text-gray-600">Track your journey through 150 curated problems</p>
+          <h1 className="text-3xl font-bold mb-2">Problem Tracker</h1>
+          <p className="text-gray-600">Track your progress through 150 curated coding problems</p>
         </div>
 
         {/* Stats Cards */}
