@@ -4,13 +4,13 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: '/problem-tracker',
-        destination: '/progress?tab=problems',
+        source: "/problem-tracker",
+        destination: "/progress?tab=problems",
         permanent: true,
       },
       {
-        source: '/theory-tracker',
-        destination: '/progress?tab=theory',
+        source: "/theory-tracker",
+        destination: "/progress?tab=theory",
         permanent: true,
       },
     ];
