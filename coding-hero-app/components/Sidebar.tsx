@@ -58,16 +58,13 @@ const Sidebar: React.FC<{mobileOpen?: boolean}> = ({mobileOpen=false}) => {
 
   return (
     <aside className={`bg-gray-50 border-r p-4 w-64 ${mobileOpen ? 'block' : 'hidden'} md:block overflow-y-auto`}>
-      <Link href="/" className="block mb-4">
-        <h3 className="text-lg font-bold text-gray-900 hover:text-blue-600 transition-colors">Coding Hero</h3>
-      </Link>
-      <div className="mb-4 hidden md:block">
-        <div className="mb-2">
-          {/* Search component for wide screens */}
-          <div>
-              <Search />
-          </div>
-        </div>
+      <div className="mb-4">
+        <Link href="/dashboard" className="flex items-center justify-center gap-2 mb-2 p-2 rounded-lg hover:bg-gray-100 transition-colors">
+          <span className="text-2xl">🏠</span>
+        </Link>
+        <Link href="/dashboard" className="block">
+          <h3 className="text-lg font-bold text-gray-900 hover:text-orange-600 transition-colors text-center">LearnForge</h3>
+        </Link>
       </div>
       
       {/* Main Navigation Links */}
@@ -90,6 +87,11 @@ const Sidebar: React.FC<{mobileOpen?: boolean}> = ({mobileOpen=false}) => {
           </svg>
           Problem Tracker
         </Link>
+      </div>
+
+      {/* Search */}
+      <div className="mb-4 pb-4 border-b border-gray-300 hidden md:block">
+        <Search />
       </div>
       
       {/* Collapsible Categories */}

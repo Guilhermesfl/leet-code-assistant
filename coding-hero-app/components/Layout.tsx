@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 import Sidebar from './Sidebar'
 import Search from './Search'
 import { useState } from 'react'
@@ -8,7 +9,9 @@ const Layout: React.FC<{children: React.ReactNode}> = ({children}) => {
   return (
     <div className="h-screen flex flex-col md:flex-row overflow-hidden">
       <header className="w-full md:hidden p-4 border-b flex items-center justify-between">
-        <div className="font-bold">Coding Hero</div>
+        <Link href="/dashboard">
+          <div className="font-bold cursor-pointer hover:text-orange-600 transition-colors">LearnForge</div>
+        </Link>
         <div className="flex items-center gap-2">
           <div className="hidden sm:block"><Search /></div>
           <button className="p-2" onClick={() => setOpen(v => !v)} aria-label="Open menu">☰</button>
