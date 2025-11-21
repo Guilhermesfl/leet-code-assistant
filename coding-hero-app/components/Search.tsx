@@ -25,12 +25,21 @@ const Search: React.FC = () => {
 
   return (
     <div className="relative">
-      <input type="search" placeholder="Search docs..." value={query} onChange={e=>setQuery(e.target.value)} className="border rounded px-3 py-1" />
+      <input 
+        type="search" 
+        placeholder="Search content..." 
+        value={query} 
+        onChange={e=>setQuery(e.target.value)} 
+        className="w-full bg-gray-800 border border-gray-600 rounded-lg px-3 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:border-transparent transition-all text-sm" 
+      />
       {results.length>0 && (
-        <div className="absolute bg-white border mt-1 w-80 z-20">
+        <div className="absolute bg-gray-800 border border-gray-700 rounded-lg mt-2 w-full z-20 shadow-xl max-h-80 overflow-y-auto">
           {results.map(r => (
             <Link key={r.slug} href={`/docs/${r.slug}`}>
-              <a onClick={() => setQuery('')} className="block p-2 hover:bg-gray-50">{r.title} <small className="text-gray-500">· {r.category}</small></a>
+              <a onClick={() => setQuery('')} className="block p-3 hover:bg-gray-700 text-gray-300 hover:text-white transition-colors border-b border-gray-700 last:border-b-0">
+                <span className="font-medium">{r.title}</span>
+                <small className="text-gray-500 ml-2">· {r.category}</small>
+              </a>
             </Link>
           ))}
         </div>
