@@ -93,49 +93,24 @@ export default function Dashboard({ categorizedDocs }: { categorizedDocs: Catego
                 </div>
               </Link>
 
-              {/* Theory Tracker Card */}
-              <Link href="/theory-tracker">
-                <div className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-purple-500 cursor-pointer">
+              {/* Progress Tracker Card */}
+              <Link href="/progress">
+                <div className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-indigo-500 cursor-pointer">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                      📚
+                    <div className="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                      📊
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-purple-600 transition-colors">
-                        Theory Tracker
+                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-indigo-600 transition-colors">
+                        Progress Tracker
                       </h3>
                       <p className="text-gray-600 text-sm">
-                        Track your progress on core concepts
+                        Track problems, theory concepts, and overall progress
                       </p>
                     </div>
                   </div>
-                  <div className="mt-4 flex items-center text-purple-600 font-semibold text-sm">
-                    <span>Check Progress</span>
-                    <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-
-              {/* Problem Tracker Card */}
-              <Link href="/problem-tracker">
-                <div className="group bg-white rounded-xl shadow-md hover:shadow-xl transition-all duration-300 p-6 border-2 border-transparent hover:border-blue-500 cursor-pointer">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                      ✅
-                    </div>
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
-                        Problem Tracker
-                      </h3>
-                      <p className="text-gray-600 text-sm">
-                        Monitor your coding problem solutions
-                      </p>
-                    </div>
-                  </div>
-                  <div className="mt-4 flex items-center text-blue-600 font-semibold text-sm">
-                    <span>View Problems</span>
+                  <div className="mt-4 flex items-center text-indigo-600 font-semibold text-sm">
+                    <span>View Progress</span>
                     <svg className="w-4 h-4 ml-2 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                     </svg>

@@ -343,11 +343,8 @@ export default function StudyPlan() {
         <div className="bg-gradient-to-br from-indigo-50 to-purple-50 border border-indigo-200 rounded-lg p-5 mb-8">
           <h3 className="font-semibold text-indigo-900 mb-3">Quick Navigation</h3>
           <div className="flex flex-wrap gap-2">
-            <Link href="/theory-tracker" className="px-3 py-1 bg-white text-purple-700 rounded border border-purple-200 hover:bg-purple-50 text-sm">
-              📖 Theory Tracker
-            </Link>
-            <Link href="/problem-tracker" className="px-3 py-1 bg-white text-blue-700 rounded border border-blue-200 hover:bg-blue-50 text-sm">
-              💻 Problem Tracker
+            <Link href="/progress" className="px-3 py-1 bg-white text-indigo-700 rounded border border-indigo-200 hover:bg-indigo-50 text-sm">
+              📊 Progress Tracker
             </Link>
             <Link href="/category/data-structures" className="px-3 py-1 bg-white text-gray-700 rounded border border-gray-200 hover:bg-gray-50 text-sm">
               📚 Documentation
